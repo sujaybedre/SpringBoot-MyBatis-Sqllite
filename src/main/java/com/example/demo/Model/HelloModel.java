@@ -1,7 +1,12 @@
 package com.example.demo.Model;
 
 public class HelloModel {
+
     private long Id;
+
+    private String Title;
+
+    private String Text;
 
     public long getId() {
         return Id;
@@ -26,7 +31,4 @@ public class HelloModel {
     public void setText(String text) {
         Text = text;
     }
-
-    private String Title;
-    private String Text;
 }

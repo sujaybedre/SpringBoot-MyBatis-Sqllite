@@ -10,8 +10,8 @@ import java.util.List;
 @Component
 public interface HelloMapper {
 
-    @Insert("INSERT INTO hello(key, value) VALUES(#{key}, #{value})")
-    @SelectKey(statement = "SELECT seq id FROM sqlite_sequence WHERE (name = 'hello')", before = false, keyProperty = "id", resultType = int.class)
+    @Insert("INSERT INTO HELLO (TEXT,TITLE) VALUES (#{text}, #{title})")
+    @Options(useGeneratedKeys = true, keyProperty = "id")
     int insert(HelloModel model);
 
     @Select("SELECT * FROM hello WHERE id=#{id}")
@@ -19,7 +19,6 @@ public interface HelloMapper {
 
     @Select("SELECT * FROM hello")
     List<HelloModel> selectAll();
-
 
     @Update("UPDATE hello SET value=#{value} WHERE id=#{id}")
     int updateValue(HelloModel model);
